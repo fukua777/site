@@ -1,0 +1,28 @@
+{
+  "name": "blog_vue",
+  "version": "1.0.0",
+  "description": "blog_vue",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fukua777/site.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "fukua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fukua777/site/issues"
+  },
+  "homepage": "https://github.com/fukua777/site#readme",
+  "dependencies": {
+    "marked": "^0.3.6"
+  },
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  }
+}

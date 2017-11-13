@@ -35,6 +35,10 @@ body{
     text-align: center;
     line-height: 70px;
 }
+.header_main ul li a{
+    display: inline-block;
+    width: 100%;
+}
 /* banner */
 .banner{
     height: 300px;
