@@ -6,8 +6,8 @@ var header_btn = {
 var header_tpl = `<div class="header_box">
     <div class="header_main">
         <ul>
-            <li><a href="">${header_btn.index}</a></li>
-            <li><a href="">${header_btn.about}</a></li>
+            <li><a href="#index">${header_btn.index}</a></li>
+            <li><a href="#about">${header_btn.about}</a></li>
         </ul>
     </div>
     </div>`;
@@ -62,21 +62,21 @@ var main = Vue.extend({
 })
 
 var about = Vue.extend({
-    template: '<span>{{msg}}</span>',
+    template: '<div v-html="msg"></div>',
     data: function() {
         return {
-            msg: 'hello about!'
+            msg: marked('# hello world')
         }
     }
 })
 
 const routes = [
     {
-        path: '/',
+        path: '/index',
         component: main
     },
     {
-        path: '/index/about',
+        path: '/about',
         component: about
     }
 ]
