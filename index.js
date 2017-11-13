@@ -1,3 +1,25 @@
+// header
+var header_btn = {
+    index: '首页',
+    about: '关于'
+}
+var header_tpl = `<div class="header_box">
+    <div class="header_main">
+        <ul>
+            <li><a href="">${header_btn.index}</a></li>
+            <li><a href="">${header_btn.about}</a></li>
+        </ul>
+    </div>
+    </div>`;
+
+Vue.component('appHeader',{
+    template: header_tpl,
+    data: function(){
+        return {
+            
+        }
+    }
+});
 //left up bar
 var left_up_btn = {
     title: '甫夸',
@@ -19,14 +41,17 @@ var left_up_tpl = `<div class="left_up_box">
 var left_down_tpl = `<div class="left_down_box">
     </div>`;
 //left
-var left_tpl = `<section class="left_box">${left_up_tpl}${left_down_tpl}
+var left_tpl = `<section class="left_box">${left_up_tpl}
     </section>`;
 //right
 var right_tpl = `<section class="right_box">
     </section>`;
 //main
 var main_tpl = `<main class="main_box">${left_tpl}${right_tpl}
-    </main>`;
+</main>`;
+
+
+//main
 var main = Vue.extend({
     template: main_tpl,
     data: function() {
@@ -35,71 +60,26 @@ var main = Vue.extend({
         }
     }
 })
-//about
+
 var about = Vue.extend({
-    template: '<div v-html="msg"></div>',
+    template: '<span>{{msg}}</span>',
     data: function() {
         return {
-            msg: marked('# hello world',{sanitize: false})
+            msg: 'hello about!'
         }
     }
-});
-//route
-routes = [
+})
+
+const routes = [
     {
-        path: '/index',
+        path: '/',
         component: main
     },
     {
-        path: '/about',
+        path: '/index/about',
         component: about
     }
-];
-
-
-
-
-
-// header
-var header_btn = {
-    '#index': '首页',
-    '#about': '关于'
-}
-// var header_tpl = `<div class="header_box">
-//     <div class="header_main">
-//         <ul>
-//             <li><a href="#${routes[0].path.substr(0)}">${header_btn.index}</a></li>
-//             <li><a href="#${routes[1].path.substr(1)}">${header_btn.about}</a></li>
-//         </ul>
-//     </div>
-//     </div>`;
-var header_tpl = '<div class="header_box">'+
-    '<div class="header_main">'+
-        '<ul>'+
-            '<li v-for="(item,key) in header_btn"><a :href="key">{{item}}</a></li>'+
-        '</ul>'+
-    '</div>'+
-    '</div>';
-
-Vue.component('appHeader',{
-    template: header_tpl,
-    data: function(){
-        return {
-            header_btn
-        }
-    },
-    methods: {
-        test: function(key){
-            alert(key);
-        }
-    }
-});
-
-
-
-
-
-
+]
 
 const router = new VueRouter({
     routes: routes
